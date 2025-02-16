@@ -119,9 +119,6 @@ def main():
 
             current_state = sniff_data['currentState']
 
-            if current_state == old_state:
-                continue
-
             # Toggle Sources
             if MODE == 1:
                 if current_scene == MAIN_SCENE:
