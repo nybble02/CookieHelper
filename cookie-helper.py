@@ -19,6 +19,11 @@ END_SONG = 5
 logger = logging.getLogger("nybb-scene-switch")
 logger.setLevel(logging.INFO)
 
+# Log to file
+file_handler = logging.FileHandler("nyb-log.log")
+file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+logger.addHandler(file_handler)
+
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(logging.Formatter("%(levelname)s - %(message)s"))
 logger.addHandler(console_handler)
@@ -50,7 +55,7 @@ if not os.path.exists(config_path):
         "song_scene": "Song Scene",
         "menu_scene": "Menu Scene",
         "sources": "Source 1,Source 2",
-        "sources_states": "off,on"
+        "source_states": "off,on"
 
     }
     with open(config_path, "w") as config_file:
